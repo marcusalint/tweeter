@@ -1,0 +1,27 @@
+
+
+#tweet-text {
+  background-color: #f4f1ec;
+  border: 0;
+  display: block;
+  width: 100%;
+}
+
+
+#submit-tweet-button {
+  float: left;
+  font-family: "bungee", "sans-seif";
+  background-color: #4056A1;
+  color: #fff;
+}
+
+.counter {
+  float: right;
+  font-family: "bungee", "sans-seif";
+}
+
+#new-tweet-label {
+  float: left;
+}
+
+
