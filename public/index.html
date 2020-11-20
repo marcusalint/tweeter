@@ -18,9 +18,12 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/fd87467771.js" crossorigin="anonymous"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -49,7 +52,7 @@
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST">
           <label for="tweet-text" id="new-tweet-label">What are you humming about?</label>
-          <textarea name="text" id="tweet-text">Hello</textarea>
+          <textarea name="text" id="tweet-text"></textarea>
           <hr>
           <div>
             <button type="submit" id="submit-tweet-button">Tweet</button>
@@ -57,6 +60,22 @@
           </div>
         </form>
       </section>
+        <article class="tweet-container">
+          <header>
+            <img class="display-pic" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" alt="">
+            <p class="username">@Username</p>
+            <p class=tweet-text>Hello World</p>
+          </header>
+          <footer class="tweet-footer">
+            <p>Date Posted</p>
+            <p>
+              <span><i class="fas fa-flag fa-1x"></i></span>
+              <span><i class="fas fa-heart fa-1x"></i></span>
+              <span><i class="fas fa-retweet fa-1x"></i></i></span>
+            </p>
+            
+          </footer>
+        </article>
     </main>
   </body>
 </html>
