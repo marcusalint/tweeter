@@ -28,7 +28,7 @@
   
 }
 
-.tweet-container .display-pic {
+.tweet-container .avatar {
   width: 15%;
   margin-top: 1em;
   margin-left: 1em;
@@ -37,17 +37,10 @@
 
 .tweet-container .username {
   align-self: flex-end;
-  /* position: absolute; */
   margin-bottom: 500px;
   margin-right: 1em;
-
-}
-
-.tweet-container .username {
   visibility: hidden;
   position: absolute;
-  align-self: flex-end;
-  margin-left: 1em;
 }
 
 /* Hover States */
