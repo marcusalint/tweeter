@@ -15,6 +15,8 @@ const tweetData = [ {
 
 $(document).ready(function() { 
 
+
+
 // RENDER TWEETS FROM DATABASE
 function renderTweets(tweets) {
   for (let i = 0, len = tweets.length; i < len; i++) {
@@ -25,7 +27,8 @@ function renderTweets(tweets) {
  
 function createTweetElement(data) {
   const $tweet = $("<article/>");
-  // header element
+
+  // Template for Header Element
   const $header = $(
     `
     <header>
@@ -36,6 +39,8 @@ function createTweetElement(data) {
   </header>
   `
   )
+
+  // Template for Footer Element
   const $footer = $(
     `<footer>
     <p></p>
@@ -46,7 +51,7 @@ function createTweetElement(data) {
   </p>
     `
   )
-  return $tweet.append($header).append($footer);
+  return $tweet.prepend($header).prepend($footer);
 }
 
 renderTweets(tweetData);
@@ -54,6 +59,9 @@ renderTweets(tweetData);
 
 const URL = 'http://localhost:3000';
 
+// Error Messages Are Hidden Initially
+$("#error-empty").hide()
+$("#error-too-long").hide()
 $(function() {
   var $submit = $(".new-tweet");
   $submit.on('submit', function (event) {
@@ -62,14 +70,14 @@ $(function() {
     var formText = $(this).serialize();
 
     var textAreaContent = $('#tweet-text').val();
-        // debugger;
-        console.log(textAreaContent === "");
 
-        if(textAreaContent === "") {
-          return alert("Tweet submission cannot be empty");
+    if(textAreaContent === "") {
+          return $("#error-empty").show();
         } else if (textAreaContent.length > 140) {
-          return alert("Tweet cannot be longer than 140 characters");
+          return $("#error-too-long").show();
         } else {
+          $("#error-empty").hide();  
+          $("#error-too-long").hide(); // Correct Input Hides Error Messages If Input Was Entered Incorrectly
           $.ajax({
             url: `tweets/`,
             method: 'POST',
@@ -78,18 +86,19 @@ $(function() {
               loadTweets();
               $('#tweet-text').val('');
               $('.counter').html(140);
-              console.log('the ajax request is successfull');
+              console.log('the ajax request is successfull');    
             }
           });
         }
       });
     });
 
-
+  // Loads Tweets From Database
   function loadTweets() {
     $.ajax({
       url: `/tweets`,
       method: 'GET',
+      dataType: "json",
       success: function (data) {
         console.log('Success: ', data);
         renderTweets(data);
@@ -97,6 +106,7 @@ $(function() {
     });
   }
   loadTweets();
+
 
 });
 
