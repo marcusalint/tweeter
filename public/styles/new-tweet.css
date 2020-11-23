@@ -1,5 +1,3 @@
-
-
 #tweet-text {
   background-color: #f4f1ec;
   border: 0;
@@ -24,7 +22,26 @@
   float: left;
 }
 
-
 .negative {
   color: red;
+}
+
+/* Error styling */
+
+#error-empty {
+  color: red;
+  font-size: 1em;
+  border-style: solid;
+  border-color: red;
+  border-width: 2px;
+  padding: 1em;
+}
+
+#error-too-long {
+  color: red;
+  font-size: 1em;
+  border-style: solid;
+  border-color: red;
+  border-width: 2px;
+  padding: 1em;
 }
