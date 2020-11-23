@@ -51,7 +51,7 @@ function createTweetElement(data) {
   </p>
     `
   )
-  return $tweet.prepend($header).prepend($footer);
+  return $tweet.append($header).append($footer);
 }
 
 renderTweets(tweetData);
