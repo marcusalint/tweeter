@@ -15,3 +15,11 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- Body-Parser 
+- Chance
+- Nodemon
+
+
+!["Screenshot of tweet header section and compose new tweet box"](https://github.com/marcusalint/tweeter/blob/master/public/images/Header.png?raw=true)
+
+!["Screenshot of tweets section"](https://github.com/marcusalint/tweeter/blob/master/public/images/SubmitTweet.png?raw=true)
