@@ -48,9 +48,9 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
+      <section>
         <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST">
+        <form action="/tweets" method="POST" class="new-tweet">
           <label for="tweet-text" id="new-tweet-label">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <hr>
@@ -59,14 +59,14 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-      </section>
         <article class="tweet-container">
           <header>
-            <img class="display-pic" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" alt="">
+            <img class="avatar" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" alt="">
+            <h2>Mark</h2>
             <p class="username">@Username</p>
             <p class=tweet-text>Hello World</p>
           </header>
-          <footer class="tweet-footer">
+          <footer>
             <p>Date Posted</p>
             <p>
               <span><i class="fas fa-flag fa-1x"></i></span>
