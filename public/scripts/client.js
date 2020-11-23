@@ -18,7 +18,6 @@ $(document).ready(function() {
 // RENDER TWEETS FROM DATABASE
 function renderTweets(tweets) {
   for (let i = 0, len = tweets.length; i < len; i++) {
-    console.log(createTweetElement(tweets[i]))
     $('.tweet-container').append(createTweetElement(tweets[i]));
   }
 };
@@ -53,23 +52,39 @@ function createTweetElement(data) {
 renderTweets(tweetData);
 
 
-const URL = 'http://localhost:8080';
+const URL = 'http://localhost:3000';
 
-  $(function() {
-    var $submit = $(".new-tweet");
-    $submit.on('submit', function (event) {
-      console.log('Button clicked, performing ajax call...');
-      event.preventDefault();
-      var formText = $(this).serialize();
-      console.log($(this).serialize());
-      $.ajax({
-        url: `${URL}/tweets/`,
-        method: 'POST',
-        data: formText,
-        success: $('#tweet-text').val('')
+$(function() {
+  var $submit = $(".new-tweet");
+  $submit.on('submit', function (event) {
+    console.log('Button clicked, performing ajax call...');
+    event.preventDefault();
+    var formText = $(this).serialize();
+
+    var textAreaContent = $('#tweet-text').val();
+        // debugger;
+        console.log(textAreaContent === "");
+
+        if(textAreaContent === "") {
+          return alert("Tweet submission cannot be empty");
+        } else if (textAreaContent.length > 140) {
+          return alert("Tweet cannot be longer than 140 characters");
+        } else {
+          $.ajax({
+            url: `tweets/`,
+            method: 'POST',
+            data: formText,
+            success: function () {
+              loadTweets();
+              $('#tweet-text').val('');
+              $('.counter').html(140);
+              console.log('the ajax request is successfull');
+            }
+          });
+        }
       });
     });
-  });
+
 
   function loadTweets() {
     $.ajax({
