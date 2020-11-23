@@ -60,21 +60,28 @@ const URL = 'http://localhost:8080';
     $submit.on('submit', function (event) {
       console.log('Button clicked, performing ajax call...');
       event.preventDefault();
-      var formInput = $(this).serialize();
+      var formText = $(this).serialize();
       console.log($(this).serialize());
       $.ajax({
         url: `${URL}/tweets/`,
         method: 'POST',
-        data: formInput,
-        success: function (data) {
-          console.log('Success: ', data);
-          $('#tweet-text').val('');
-          renderTweets(data);
-        }
+        data: formText,
+        success: $('#tweet-text').val('')
       });
     });
   });
 
+  function loadTweets() {
+    $.ajax({
+      url: `/tweets`,
+      method: 'GET',
+      success: function (data) {
+        console.log('Success: ', data);
+        renderTweets(data);
+      }
+    });
+  }
+  loadTweets();
 
 });
 
