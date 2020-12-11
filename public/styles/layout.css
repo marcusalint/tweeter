@@ -7,7 +7,7 @@
 
 
 
-html {
+ html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
@@ -28,14 +28,15 @@ body {
 }
 
 .container {
-  width: 90%;
-  display: block;
-  margin: auto;
-  color: #545149;
-  text-align: center;
+  display:flex;
+  flex-direction: column;
+
 }
 
+.wrapper {
+  display: flex;
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-
+ 

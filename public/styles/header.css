@@ -1,4 +1,4 @@
-header {
+.banner {
   height: 400px;
   width: 100%;
   display: flex;
@@ -7,17 +7,9 @@ header {
   justify-content: space-around; 
   background-color: #eb8d00;
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  display: inline-flex;
 }
 
-.user-name {
-  /* text-align: center; */
-}
-
-.avatar {
-
-
-
-}
 
 
 

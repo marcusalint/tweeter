@@ -1,59 +1,75 @@
-.tweet-container {
-  opacity: 0.5;
-
-}
-
-.tweet-container header {
-  background-color: rgb(16, 144, 186);
-  border: 5px solid black;
-  display: flex;
+.container {
+  display:flex;
   flex-direction: column;
-  margin-top: 3em;
-  align-items: flex-start;
-  justify-content: space-between;
-} 
-
-.tweet-container header > h2 {
-  align-self: center;
-  position: absolute;
-  margin-right: 600px;
-  margin-top: 100px;
-  font-size: 2em;
-  padding-left: 100px;
-}
-
-.tweet-container .avatar {
-  width: 15%;
-  margin-top: 1em;
-  margin-left: 1em;
-  margin-right: 1em;
-}
-
-.tweet-container .username {
-  align-self: flex-end;
-  margin-bottom: 500px;
-  margin-right: 1em;
-  visibility: hidden;
-  position: absolute;
-}
-
-.tweet-container .tweet-text {
-  margin-left: 1em;
+  margin-top: 2em;
   margin-bottom: 2em;
+
+
+
 }
 
-.tweet-container footer {
+.img-user-username {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.username {
+  margin-left: auto;
+  visibility: hidden;
+}
+
+footer {
+  display:flex;
+  flex-direction:row;
   justify-content: space-between;
 }
 
-/* Hover States */
-
-.tweet-container:hover .username {
-  visibility: visible;
+.icons {
+    margin-left: auto;
 }
 
-.tweet-container:hover {
-  opacity: 1;
 
+header {
+  margin-top: 2em;
+  border-width: 5px;
+  border-color: black;
+  border-style: solid;
+  background-color: white;
+}
+
+footer {
+  border: solid;
+  border-width: 5px;
+  border-color: black;
+  background-color: white;
+}
+
+.tweet-text {
+  padding-top: 2em;
+}
+
+
+
+article {
+  opacity: 0.6;
+
+}
+
+/* article:hover {
+  opacity: 1;
+} */
+
+
+footer:hover {
+  opacity: 1;
+}
+
+header:hover .username {
+  visibility: visible;
+
+}
+
+article:hover {
+  opacity: 1;
 }
