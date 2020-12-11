@@ -11,44 +11,43 @@ const tweetData = [ {
   "created_at": 1461116232227
 }]
 
-
-
 $(document).ready(function() { 
-
-
 
 // RENDER TWEETS FROM DATABASE
 function renderTweets(tweets) {
   for (let i = 0, len = tweets.length; i < len; i++) {
-    $('.tweet-container').append(createTweetElement(tweets[i]));
+    $('.tweet-container').prepend(createTweetElement(tweets[i]));
   }
 };
-
  
 function createTweetElement(data) {
+  var date = moment(data.user.created_at).format("DD MMM YYYY hh:mm a")
   const $tweet = $("<article/>");
 
   // Template for Header Element
   const $header = $(
     `
     <header>
-    <img class="avatar" src="${data.user.avatars}" alt="users avatar">
-    <h2>${data.user.name}</h2>
-    <p class="username">${data.user.handle}</p>
-    <p class="tweet-text">${data.content.text}</p>
+      <div class="img-user-username">
+        <img class="avatar" src="${data.user.avatars}" alt="users avatar">
+        <h2>${data.user.name}</h2>
+        <p class="username">${data.user.handle}</p>
+      </div>
+      <p class="tweet-text">${data.content.text}</p>
   </header>
   `
   )
 
   // Template for Footer Element
   const $footer = $(
-    `<footer>
-    <p></p>
-    <p>
-    <span><i class="fas fa-flag fa-1x"></i></span>
-    <span><i class="fas fa-heart fa-1x"></i></span>
-    <span><i class="fas fa-retweet fa-1x"></i></i></span>
-  </p>
+    `<footer class="tweet-footer">
+      <p>${moment(data.created_at).fromNow()}</p>
+    <div class="icons"
+      <span><i class="fas fa-flag fa-1x"></i></span>
+      <span><i class="fas fa-heart fa-1x"></i></span>
+      <span><i class="fas fa-retweet fa-1x"></i></i></span>
+    </div>
+
     `
   )
   return $tweet.append($header).append($footer);
@@ -56,20 +55,16 @@ function createTweetElement(data) {
 
 renderTweets(tweetData);
 
-
-const URL = 'http://localhost:3000';
-
 // Error Messages Are Hidden Initially
 $("#error-empty").hide()
 $("#error-too-long").hide()
 $(function() {
-  var $submit = $(".new-tweet");
+  const $submit = $(".new-tweet");
   $submit.on('submit', function (event) {
-    console.log('Button clicked, performing ajax call...');
     event.preventDefault();
-    var formText = $(this).serialize();
+    const formText = $(this).serialize();
 
-    var textAreaContent = $('#tweet-text').val();
+    const textAreaContent = $('#tweet-text').val();
 
     if(textAreaContent === "") {
           return $("#error-empty").show();
@@ -86,7 +81,6 @@ $(function() {
               loadTweets();
               $('#tweet-text').val('');
               $('.counter').html(140);
-              console.log('the ajax request is successfull');    
             }
           });
         }
@@ -100,13 +94,10 @@ $(function() {
       method: 'GET',
       dataType: "json",
       success: function (data) {
-        console.log('Success: ', data);
         renderTweets(data);
       }
     });
   }
   loadTweets();
 
-
 });
-
