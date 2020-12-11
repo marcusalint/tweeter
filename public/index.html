@@ -1,72 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-      <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
+<head>
+  <!-- Meta Information -->
+  <title>Tweeter - Home Page</title>
 
-    <!-- CSS rules to specify families -->
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    type="text/css" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,700;1,300;1,700&display=swap"
+    rel="stylesheet">
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+  <!-- CSS rules to specify families -->
+
+  <!-- App CSS -->
+
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
 
-    <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/fd87467771.js" crossorigin="anonymous"></script>
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/fd87467771.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/vendor/moment.js"></script>
 
-    <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-  </head>
 
-  <body>
-    <!-- Top nav bar (fixed) -->
-    <nav>
-        <span class="logo" >tweeter</span>
-        <h1></h1>
-    </nav>
-    <header>
-      <div>
-          <img class="avatar" src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div class="user-name">
-          <h2>Salar Taeb</h2>
-      </div>
-  </header>
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/client.js"></script>
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+</head>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section>
-        <div>
-          <h1 id="error-empty">Error: Tweet submission cannot be empty!</h1>
-        </div>
-        <div>
-          <h1 id="error-too-long">Error: Tweet submission cannot be longer than 140 characters!</h1>
-        </div>
-        <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST" class="new-tweet">
-          <label for="tweet-text" id="new-tweet-label">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <hr>
+<body>
+  <!-- Top nav bar (fixed) -->
+  <nav>
+    <span class="logo">tweeter</span>
+    <h1></h1>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-12"></div>
+        <section class="banner">
           <div>
-            <button type="submit" id="submit-tweet-button">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+            <img class="avatar" src="/images/profile-hex.png">
           </div>
-        </form>
-        <article class="tweet-container">
-        </article>
-    </main>
-  </body>
+          <br>
+          <div class="user-name">
+            <h2>Salar Taeb</h2>
+          </div>
+        </section>
+      </div>
+
+      <!-- Page-specific (main) content here -->\
+        <main class="container">
+          <section>
+            <div>
+              <h1 id="error-empty">Error: Tweet submission cannot be empty!</h1>
+            </div>
+            <div>
+              <h1 id="error-too-long">Error: Tweet submission cannot be longer than 140 characters!</h1>
+            </div>
+            <h2>Compose Tweet</h2>
+            <form action="/tweets" method="POST" class="new-tweet">
+              <label for="tweet-text" id="new-tweet-label">What are you humming about?</label>
+              <textarea name="text" id="tweet-text"></textarea>
+              <hr>
+              <div>
+                <button type="submit" id="submit-tweet-button">Tweet</button>
+                <output name="counter" class="counter" for="tweet-text">140</output>
+              </div>
+            </form>
+          </section>
+
+          <article class="tweet-container container">
+
+        </div>
+        </main>
+      </div>
+    </div>
+  
+</body>
+
 </html>
